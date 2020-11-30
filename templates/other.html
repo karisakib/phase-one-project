@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>{% block title %}Welcome to my house{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <header>
+    {% block header %}
+    Welcome to my Page
+    {% endblock %}
+  </header>
+  <div>
+    <ul>
+    {% for row in data %}
+      <li>{{ row }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('index') }}">home</a></li>
+      <li><a href="{{ url_for('other') }}">form</a></li>
+    </ul>
+  </nav>
+  <form action="/register" method="POST">
+    First Name: <input type="text" name="first_name">
+    Last Name: <input type="text" name="last_name">
+    <!-- Email: <input type="email" name="email">
+    Phone: <input type="number" name="phone"> -->
+    <input type="submit" value="other">
+  </form>
+  <section class="content">
+    {% block content %}
+    {{ first_name }}
+    {{ last_name }}
+    {{ email }}
+    {{ phone }}
+    {% endblock %}
+  </section>
+</body>

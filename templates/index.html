@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}Welcome to  my house{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      {% block header %}
+      Welcome to my Page
+      {% endblock %}
+    </header>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">home</a></li>
+        <li><a href="{{ url_for('other') }}">form</a></li>
+      </ul>
+    </nav>
+    <section class="content">
+    {% block content %}
+    {{fun_fact}}
+    {% endblock %}
+    </section>
+</body>
