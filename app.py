@@ -27,5 +27,19 @@ def home():
         d.append(row_as_dict)
     return render_template("index.html", data = d)
 
+@app.route("/api", methods=["GET"])
+def api_route():
+    table = Database.query.all()
+    d=[]
+    for row in table:
+        row_as_dict = {
+            "rank": row.rank,
+            "company": row.company,
+            "country": row.country,
+            "percentage": row.percentage,
+        }
+        d.append(row_as_dict)
+    return jsonify(d)
+
 if __name__ == '__main__':
     app.run(debug=True)
