@@ -12,16 +12,18 @@
     {% block body %}
     <div>
         {% for row in data %}
-            <div>
-                <h4>{{row.rank}}. {{row.country}}</h4>
-                <!-- <p>{{row.company}}</p>
+        <div>
+            <h4>{{row.rank}}. {{row.country}}</h4>
+            <!-- <p>{{row.company}}</p>
                 <p>{{row.percentage}}</p> -->
-                <p>{{row.country}} is ranked at <b>{{row.rank}}</b>
-                     because of having {{row.percentage}} percentage
-                     of global carbon emissions, having {{row.company}}
-                     contributing the most in {{row.country}}</p>
-                
-            </div>
+            <p>{{row.country}} is ranked at <b>{{row.rank}}</b>
+                because of having {{row.percentage}} percentage
+                of global carbon emissions, having {{row.company}}
+                contributing the most in {{row.country}}.</p>
+
+            <p>For more information about this company, please
+                visit {{row.link}} for more information about them.</p>
+        </div>
         {% endfor %}
     </div>
     {% endblock %}

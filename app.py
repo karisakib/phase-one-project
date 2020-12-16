@@ -12,6 +12,7 @@ class Database(db.Model):
     company = db.Column(db.String(255), nullable=False)
     country = db.Column(db.String(255), nullable=False)
     percentage = db.Column(db.String(255), nullable=False)
+    link = db.Column(db.String(255), nullable=False)
 
 @app.route("/", methods=["GET"])
 def home():
@@ -23,6 +24,7 @@ def home():
             "company": row.company,
             "country": row.country,
             "percentage": row.percentage,
+            "link": row.link
         }
         d.append(row_as_dict)
     return render_template("index.html", data = d)

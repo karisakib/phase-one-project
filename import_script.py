@@ -11,7 +11,7 @@ clean_data = []
 for row in rows[1:]:
     link = row.find('a')["href"]
     stripped_list = list(row.stripped_strings)
-    stripped_list.append(link)    
+    stripped_list.append(f"https://en.wikipedia.org{link}")
     clean_data.append(stripped_list)
 
 def main():
@@ -19,7 +19,7 @@ def main():
     db.create_all()
 
     for row in clean_data:
-        new_row = Database(rank=row[0], company=row[1], country=row[2], percentage=row[3])
+        new_row = Database(rank=row[0], company=row[1], country=row[2], percentage=row[3], link=row[4])
         db.session.add(new_row)
         db.session.commit()
 
