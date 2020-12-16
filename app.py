@@ -8,12 +8,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Database(db.Model):
-    # id = db.Column(db.Integer, primary_key=True)
     rank = db.Column(db.Integer, primary_key=True)
     company = db.Column(db.String(255), nullable=False)
     country = db.Column(db.String(255), nullable=False)
     percentage = db.Column(db.String(255), nullable=False)
-    # row = db.Column(db.String(255), nullable=False)
 
 @app.route("/", methods=["GET"])
 def home():

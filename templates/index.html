@@ -13,9 +13,14 @@
     <div>
         {% for row in data %}
             <div>
-                <h1>{{row.rank}}: {{row.country}}</h1>
-                <p>{{row.company}}</p>
-                <p>{{row.percentage}}</p>
+                <h4>{{row.rank}}. {{row.country}}</h4>
+                <!-- <p>{{row.company}}</p>
+                <p>{{row.percentage}}</p> -->
+                <p>{{row.country}} is ranked at <b>{{row.rank}}</b>
+                     because of having {{row.percentage}} percentage
+                     of global carbon emissions, having {{row.company}}
+                     contributing the most in {{row.country}}</p>
+                
             </div>
         {% endfor %}
     </div>
